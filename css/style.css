@@ -5,7 +5,7 @@
 }
 
 body{
-    font-family: roboto-regular,Helvetica,Arial,sans-serif;
+    font-family: Helvetica,Arial,sans-serif;
     background-color: #ebebeb;
     display: flex;
     flex-direction: column;
