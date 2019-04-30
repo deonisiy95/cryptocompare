@@ -2,12 +2,34 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>CryptoCompare</title>
     <script src="http://code.jquery.com/jquery-1.8.3.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.10/dist/vue.js"></script>
     <script src="js/define.js"></script>
     <script src="js/api.js"></script>
+
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
+<div id="app">
+    <table class="table table-hover">
+        <thead>
+        <tr>
+            <td>Name</td>
+            <td>Symbol</td>
+            <td>Price (USD)</td>
+        </thead>
+        <tbody>
+        <tr v-cloak v-for="coin in coins">
+            <td><img class="coin_logo" v-bind:src="getCoinImage(coin.CoinInfo.ImageUrl)"/> {{ coin.CoinInfo.FullName }}</td>
+            <td>{{ coin.CoinInfo.Internal }}</td>
+            <td>{{ coin.DISPLAY.USD.PRICE }}</td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+<script src="js/app.js"></script>
 </body>
 </html>

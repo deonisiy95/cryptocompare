@@ -3,3 +3,8 @@
     padding: 0;
     box-sizing: border-box;
 }
+
+.coin_logo {
+    width: 25px;
+    height: 25px;
+}
