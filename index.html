@@ -11,20 +11,34 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-
-<div id="app">
-    <table class="table table-hover">
+<div class="title">Crypto Compare</div>
+<div id="app" class="content">
+    <table class="coin_list">
         <thead>
         <tr>
             <td>Name</td>
             <td>Symbol</td>
             <td>Price (USD)</td>
+            <td>Mkt. Cap.</td>
+            <td>Chg. 24H</td>
         </thead>
         <tbody>
         <tr v-cloak v-for="coin in coins">
-            <td><img class="coin_logo" v-bind:src="getCoinImage(coin.CoinInfo.ImageUrl)"/> {{ coin.CoinInfo.FullName }}</td>
+            <td>
+                <div class="coin_info">
+                    <div class="coin_logo"  v-bind:style="getCoinImage(coin.CoinInfo.ImageUrl)"></div>
+                    <div class="coin_name">
+                        <a  v-bind:href="getCoinUrl(coin.CoinInfo.Url)">{{ coin.CoinInfo.FullName }}</a>
+                        <span>{{ coin.CoinInfo.Internal }}</span>
+                    </div>
+                </div>
+            </td>
             <td>{{ coin.CoinInfo.Internal }}</td>
             <td>{{ coin.DISPLAY.USD.PRICE }}</td>
+            <td>{{ coin.DISPLAY.USD.MKTCAP }}</td>
+            <td v-bind:style="getColor(coin.DISPLAY.USD.CHANGEPCT24HOUR)">
+                <span v-if="coin.DISPLAY.USD.CHANGEPCT24HOUR > 0">+</span>{{  coin.DISPLAY.USD.CHANGEPCT24HOUR }} %
+            </td>
         </tr>
         </tbody>
     </table>

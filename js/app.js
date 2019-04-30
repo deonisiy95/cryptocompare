@@ -22,8 +22,23 @@ let app = new Vue({
 
         getCoinImage: function(path) {
 
-            return CRYPTOCOMPARE_URI + path;
+            return `background-image: url('${CRYPTOCOMPARE_URI + path}')`;
         },
+
+        getCoinUrl: function(url) {
+
+            return CRYPTOCOMPARE_URI + url;
+        },
+
+        getColor: function(change_percent) {
+
+            if (change_percent > 0) {
+
+                return 'color: green;';
+            }
+
+            return 'color: red;';
+        }
     },
 
     created: function () {
