@@ -51,6 +51,7 @@ let app = new Vue({
     },
 
     created: function () {
+        document.getElementById('app').classList.remove('hidden');
         this.getCoins();
     }
 });

@@ -21,7 +21,8 @@ body{
 
 .content {
     display: flex;
-    justify-content: center;
+    align-items: center;
+    flex-direction: column;
 }
 
 .coin_logo {
@@ -99,5 +100,36 @@ body{
 .coin_list > thead td:first-child {
     width: 300px;
     padding-left: 20px;
+}
+
+@keyframes preloader {
+    0% {
+        transform: rotate(0deg);
+    }
+    50% {
+        transform: rotate(180deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+.preloader {
+    animation: preloader 2s linear infinite;
+    user-select: none;
+}
+
+.preloader_wrap {
+    width: 70%;
+    background: white;
+    display: flex;
+    padding-top: 50px;
+    align-items: flex-start;
+    justify-content: center;
+    height: 600px;
+    box-shadow: 0 0 15px rgba(0,0,0,0.1);
+}
+
+.hidden {
+    display: none;
 }
 
